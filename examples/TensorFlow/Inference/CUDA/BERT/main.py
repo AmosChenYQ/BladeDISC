@@ -43,6 +43,8 @@ def run_bert(optimize_config: str = None):
     graph = load_frozen_graph('./model/frozen.pb')
     sess = tf.Session(graph=graph, config=session_config)
 
+    all_times = []
+
     # Warmup.
     print("Warming up...")
     fetch = ["unstack:0", "unstack:1"]
@@ -52,11 +54,14 @@ def run_bert(optimize_config: str = None):
         'input_mask_1:0': np.ones((1, 384), dtype=int),
     }
     for i in range(50):
+        s = time.time()
         outs = sess.run(fetch, feed_dict=feed_dict)
+        e = time.time()
+        if i == 0:
+            all_times.append(e - s)
 
     # Measure performance.
     print("Run 10 inferences with dynamic batch sizes.")
-    all_times = []
     for batch in [2, 2, 4, 1, 1, 8, 8, 2, 16, 2]:
         feed_dict = {
             'input_ids_1:0': np.ones((batch, 384), dtype=int),
