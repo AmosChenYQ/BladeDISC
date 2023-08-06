@@ -28,3 +28,6 @@ third_party/bazel/blade_service_common/blade_service_common_workspace.bzl.tpl
 *.egg-info
 build/
 .pytest_cache
+
+examples/TensorFlow/Inference/CUDA/BERT/model
+tao/python/blade_disc_tf/tao_compiler_main
