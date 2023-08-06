@@ -33,6 +33,8 @@ getCudaArch() {
     echo "610"
   elif [[ "${gpu_name}" == *"P100"* ]]; then
     echo "600"
+  elif [[ "${gpu_name}" == *"RTX 3080"* ]]; then
+    echo "860"
   fi
 }
 CUDA_ARCH="$(getCudaArch)"

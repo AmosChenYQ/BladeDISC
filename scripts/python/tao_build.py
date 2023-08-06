@@ -281,7 +281,7 @@ def configure(root, args):
 
 @time_stage()
 def build_tao_compiler(root, args):
-    BAZEL_BUILD_CMD = "bazel build --experimental_multi_threaded_digest --define framework_shared_object=false" + ci_build_flag()
+    BAZEL_BUILD_CMD = "bazel build --experimental_multi_threaded_digest --define framework_shared_object=false --verbose_failures" + ci_build_flag()
     TARGET_TAO_COMPILER_MAIN = "//tensorflow/compiler/decoupling:tao_compiler_main"
     TARGET_DISC_OPT = "//tensorflow/compiler/mlir/disc:disc-opt"
     TARGET_DISC_REPLAY = "//tensorflow/compiler/mlir/disc/tools/disc-replay:disc-replay-main"

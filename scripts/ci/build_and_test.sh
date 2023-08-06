@@ -26,10 +26,10 @@ if [[ -f ~/.cache/proxy_config ]]; then
 fi
 
 # cleanup build cache
-(rm -rf build \
-  && rm -rf tao/build \
-  && cd tao && bazel clean --expunge && cd .. \
-  && cd tf_community && bazel clean --expunge)
+# (rm -rf build \
+#   && rm -rf tao/build \
+#   && cd tao && bazel clean --expunge && cd .. \
+#   && cd tf_community && bazel clean --expunge)
 
 python ${ENTRY} ${VENV_PATH} -s configure --bridge-gcc default --compiler-gcc default ${CPU_ONLY} ${ROCM} ${DCU} ${ROCM_PATH}
 python ${ENTRY} ${VENV_PATH} -s build_tao_bridge ${CPU_ONLY} ${ROCM} ${DCU} ${ROCM_PATH}
