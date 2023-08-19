@@ -36,6 +36,18 @@ please goto [this website](https://hub.docker.com/r/bladedisc/bladedisc/tags?pag
 
 ## Building BladeDISC for TensorFlow Users
 
+### Please make sure you 'source /opt/venv_disc/bin/activate' before you do the following commands
+
+
+#### By far this branch only supports tensorflow version 2.4.0
+
+#### Some processes in build_and_test.sh are useless
+
+#### For rebuild you can directly use rebuild script under ./scirpts/ci
+
+
+
+
 build and test tensorflow_bladedisc with an all-in-on bash script.
 
 ``` bash
